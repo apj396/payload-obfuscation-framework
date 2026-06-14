@@ -192,7 +192,3 @@ Tested against a 22-signature simulated detector:
 - Building modular, CLI-driven Python security tools
 
 ---
-
-## License
-
-This project is for educational purposes only. No license is granted for offensive use.
