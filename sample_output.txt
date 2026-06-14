@@ -1,0 +1,112 @@
+══════════════════════════════════════════════════════════════════════
+  CUSTOM PAYLOAD ENCODER & OBFUSCATION FRAMEWORK
+  Unified Mentor — Cybersecurity Project 2
+  Report Generated : June 2026
+  XOR Key          : 0x41 (65)
+══════════════════════════════════════════════════════════════════════
+
+  [ORIGINAL PAYLOAD]
+──────────────────────────────────────────────────────────────────────
+  Payload  : cmd.exe /c powershell -exec bypass -nop -w hidden
+  Verdict  : DETECTED
+  Matched  : cmd.exe, powershell
+
+══════════════════════════════════════════════════════════════════════
+  ENCODING & OBFUSCATION RESULTS
+══════════════════════════════════════════════════════════════════════
+
+  [Base64 Encoded]
+──────────────────────────────────────────────────────────────────────
+  Output   : Y21kLmV4ZSAvYyBwb3dlcnNoZWxsIC1leGVjIGJ5cGFzcyAtbm9wIC13IGhpZGRlbg==
+  Verdict  : BYPASSED
+
+  [XOR Encoded (key=0x41)]
+──────────────────────────────────────────────────────────────────────
+  Output   : 222c256f243924616e2261312e3624333229242d2d616c2439242261233831203232616c2f2e31616c366129282525242f
+  Verdict  : BYPASSED
+
+  [ROT13 Encoded]
+──────────────────────────────────────────────────────────────────────
+  Output   : pzq.rkr /p cbjrefuryy -rkrp olcnff -abc -j uvqqra
+  Verdict  : BYPASSED
+
+  [Base64 → XOR (multi-layer)]
+──────────────────────────────────────────────────────────────────────
+  Output   : 1873702a0d2c17751b120037183803362372252d222f0f2e1b1639320802702d2406172b08060b742206073b223800352...
+  Verdict  : BYPASSED
+
+  [ROT13 → Base64 (multi-layer)]
+──────────────────────────────────────────────────────────────────────
+  Output   : cHpxLnJrciAvcCBjYmpyZWZ1cnl5IC1ya3JwIG9sY25mZiAtYWJjIC1qIHV2cXFyYQ==
+  Verdict  : BYPASSED
+
+  [XOR → Base64 → ROT13 (3-layer)]
+──────────────────────────────────────────────────────────────────────
+  Output   : ZwVlLmV1AzLlAQZ5ZwD2ZGMyZwV2ZGZkZzHmAwV0ZmZmZwV5ZwDlMQWxAwR2LmV0ZmxlAQVlAwRlZmZ4ZmRlZQZlZmV2ZGMwZ...
+  Verdict  : BYPASSED
+
+  [Obfuscation: Random Char Insertion]
+──────────────────────────────────────────────────────────────────────
+  Output   : cm+d&.exe: $/=c powershe:ll_ -%exec; bypass -n*op -w hi.d+den[
+  Verdict  : BYPASSED
+
+  [Obfuscation: Split & Concat]
+──────────────────────────────────────────────────────────────────────
+  Output   : "cm" + "d." + "ex" + "e " + "/c" + " p" + "ow" + "er" + "sh" + "el" + "l " + "-e" + "xe" + "c " +...
+  Verdict  : BYPASSED
+
+  [Obfuscation: Hex Escape Sequences]
+──────────────────────────────────────────────────────────────────────
+  Output   : \x63\x6d\x64.\x65xe /\x63 \x70o\x77er\x73\x68e\x6cl -\x65\x78ec \x62\x79p\x61s\x73 -\x6e\x6fp -\x...
+  Verdict  : BYPASSED
+
+  [Obfuscation: String Reversal]
+──────────────────────────────────────────────────────────────────────
+  Output   : neddih w- pon- ssapyb cexe- llehsrewop c/ exe.dmc
+  Verdict  : BYPASSED
+
+  [Obfuscation: Case Swap]
+──────────────────────────────────────────────────────────────────────
+  Output   : CMD.EXE /C POWERSHELL -EXEC BYPASS -NOP -W HIDDEN
+  Verdict  : DETECTED
+  Matched  : cmd.exe, powershell
+
+  [Base64 + Escape Obfuscation (hybrid)]
+──────────────────────────────────────────────────────────────────────
+  Output   : \x59\x32\x31\x6b\x4c\x6dV4\x5aSAv\x59\x79\x42\x77b3dl\x63\x6eNo\x5a\x57\x78\x73IC1\x6c\x65\x47\x5...
+  Verdict  : BYPASSED
+
+  [XOR + Split-Concat Obfuscation (hybrid)]
+──────────────────────────────────────────────────────────────────────
+  Output   : "22" + "2c" + "25" + "6f" + "24" + "39" + "24" + "61" + "6e" + "22" + "61" + "31" + "2e" + "36" +...
+  Verdict  : BYPASSED
+
+══════════════════════════════════════════════════════════════════════
+  EVASION EFFECTIVENESS SUMMARY
+══════════════════════════════════════════════════════════════════════
+
+  Technique                                Verdict      Matches
+  ────────────────────────────────────────────────────────────────────
+  Base64 Encoded                           BYPASSED     0
+  XOR Encoded (key=0x41)                   BYPASSED     0
+  ROT13 Encoded                            BYPASSED     0
+  Base64 → XOR (multi-layer)               BYPASSED     0
+  ROT13 → Base64 (multi-layer)             BYPASSED     0
+  XOR → Base64 → ROT13 (3-layer)           BYPASSED     0
+  Obfuscation: Random Char Insertion       BYPASSED     0
+  Obfuscation: Split & Concat              BYPASSED     0
+  Obfuscation: Hex Escape Sequences        BYPASSED     0
+  Obfuscation: String Reversal             BYPASSED     0
+  Obfuscation: Case Swap                   DETECTED     2
+  Base64 + Escape Obfuscation (hybrid)     BYPASSED     0
+  XOR + Split-Concat Obfuscation (hybrid)  BYPASSED     0
+
+  ────────────────────────────────────────────────────────────────────
+  Original Payload Detected  : YES ⚠
+  Techniques Tested          : 13
+  Detection Bypassed         : 12/13  (92.3%)
+  Still Detected             : 1/13  (7.7%)
+
+══════════════════════════════════════════════════════════════════════
+  END OF REPORT
+══════════════════════════════════════════════════════════════════════

